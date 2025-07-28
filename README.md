@@ -3,9 +3,16 @@ This repo is a modified version of the reo surround-view-system-introduction htt
 It contains the yaml files for the MiniCernBot with the usb cameras and a new script that publishes the surround view in a ros2 topic.
 
 As the principal repo has no good readme, I decided to do it here.
+
+Hardware setup:
+<img width="1966" height="830" alt="image" src="https://github.com/user-attachments/assets/699254bf-71af-4173-be39-3c38b85b3fe2" />
+This image shows the MiniCERNBot with a Nuc and 4 USB fisheye cameras.
+
 Here is an explanation of the repo:
 run_calibrate_camera.py calibrates the camera with a nice UI
 python3 run_calibrate_camera.py   -i 2   --grid 11x8   --resolution 1920x1080   -framestep 10   -o yaml/cam2.yaml   --fisheye   --no_gst
+<img width="924" height="694" alt="image" src="https://github.com/user-attachments/assets/00d3e733-b85b-4b76-a929-5d13b348e527" />
+
 
 run_get_projection_maps.py gets the perspective. Change the data on the param_settings.py file inside the surround_view folder before runing the projection script.
 The order of seleccion of the points is very important. First the top left, top right, bottom left, bottom right.
@@ -13,6 +20,11 @@ python3 run_get_projection_maps.py -camera front
 
 <img width="1564" height="1033" alt="image" src="https://github.com/user-attachments/assets/dee16eb9-3c7c-46a4-a793-4bbcd9186904" />
 <img width="1572" height="588" alt="image" src="https://github.com/user-attachments/assets/99a06b52-19a0-44c6-aaf9-0ae058278bb2" />
+This images show how the points should be clicked and the demo result.
+<img width="635" height="846" alt="image" src="https://github.com/user-attachments/assets/bafc0226-0478-45e3-adec-9bd634d88872" />
+This shows a calibration pattern used for the perspective setup of the MiniCERNBot.
+
+
 
 
 
@@ -35,4 +47,7 @@ project_keypoints = pixel locations of the four points to be chosen when running
 
 Results:
 
+<img width="1685" height="941" alt="image" src="https://github.com/user-attachments/assets/fb699c29-1d08-41ab-8ca3-d141fe2e11ef" />
+<img width="1718" height="933" alt="image" src="https://github.com/user-attachments/assets/92264f4d-b77c-4062-8091-f4701d18d084" />
+<img width="1670" height="938" alt="image" src="https://github.com/user-attachments/assets/a09dc8a8-3285-4abc-9dcc-580cf341f334" />
 
