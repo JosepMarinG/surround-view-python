@@ -1,9 +1,38 @@
-一份简单的环视系统制作实现，包含完整的标定、投影、拼接和实时运行流程，详细文档见 `doc` 目录。环视系统的开源代码很少见，希望大家积极提 issue 和 pull request，让这个项目能更好地有益于入门者学习。
+This repo is a modified version of the reo surround-view-system-introduction https://github.com/neozhaoliang/surround-view-system-introduction
+
+It contains the yaml files for the MiniCernBot with the usb cameras and a new script that publishes the surround view in a ros2 topic.
+
+As the principal repo has no good readme, I decided to do it here.
+Here is an explanation of the repo:
+run_calibrate_camera.py calibrates the camera with a nice UI
+python3 run_calibrate_camera.py   -i 2   --grid 11x8   --resolution 1920x1080   -framestep 10   -o yaml/cam2.yaml   --fisheye   --no_gst
+
+run_get_projection_maps.py gets the perspective. Change the data on the param_settings.py file inside the surround_view folder before runing the projection script.
+The order of seleccion of the points is very important. First the top left, top right, bottom left, bottom right.
+python3 run_get_projection_maps.py -camera front
+
+<img width="1564" height="1033" alt="image" src="https://github.com/user-attachments/assets/dee16eb9-3c7c-46a4-a793-4bbcd9186904" />
+<img width="1572" height="588" alt="image" src="https://github.com/user-attachments/assets/99a06b52-19a0-44c6-aaf9-0ae058278bb2" />
 
 
-This is a simple implementation of a surround view system, including calibration, projection, stitching, and real-time running processes. The [English documentation](https://github.com/hynpu/surround-view-system-introduction/blob/master/doc/en.md) can be found in the `doc` folder.
+
+The projection script uses an image saved in the folder images with the name front.png, back.png... To obtain this images a script was created called take_picture.py
+
+In param_settings the variables to change according to the calibration pattern you use are the following (everything is in pixels):
+shift_w = how far away the birdview looks outside of the calibration pattern horizontaly
+shift_h = how far away the birdview looks outside of the calibration pattern verticaly
+inn_shift_w = size of the gap between the calibration pattern and the robot horizontaly
+inn_shift_h = size of the gap between the calibration pattern and the robot verticaly
+total_w = Total width of the whole picture
+total_h = Total height of the whole picture
+xl = horizontal component of the top left point of the robot image
+xr = horizontal component of the bottom right point of the robot image
+yt = vertical component of the top left point of the robot image
+yb = vertical component of the bottom right point of the robot image
+project_keypoints = pixel locations of the four points to be chosen when running the projection script
+
+<img width="1372" height="1120" alt="image" src="https://github.com/user-attachments/assets/2621ff3d-eab1-4d26-addb-27c3ecdaa699" />
+
+Results:
 
 
-# Use cases
-
-![1142119521](https://github.com/user-attachments/assets/97f1cebc-da38-46b6-9eb1-62af4168c79f)
