@@ -1,14 +1,18 @@
-This repo is a modified version of the reo surround-view-system-introduction https://github.com/neozhaoliang/surround-view-system-introduction
+This repository is a modified version of the project [surround-view-system-introduction]([url](https://github.com/neozhaoliang/surround-view-system-introduction)).
 
-It contains the yaml files for the MiniCernBot with the usb cameras and a new script that publishes the surround view in a ros2 topic.
+It includes:
 
-As the principal repo has no good readme, I decided to do it here.
+    YAML calibration files for the MiniCERNBot with USB fisheye cameras.
 
-Hardware setup:
+    A new script that publishes the generated surround view image on a ROS 2 topic.
+
+    A clear explanation of the workflow (since the original repo lacks proper documentation).
+
+📷 Hardware Setup:
 <img width="1966" height="830" alt="image" src="https://github.com/user-attachments/assets/699254bf-71af-4173-be39-3c38b85b3fe2" />
 This image shows the MiniCERNBot with a Nuc and 4 USB fisheye cameras.
 
-Here is an explanation of the repo:
+🔧Here is an explanation of the repo:
 run_calibrate_camera.py calibrates the camera with a nice UI
 python3 run_calibrate_camera.py   -i 2   --grid 11x8   --resolution 1920x1080   -framestep 10   -o yaml/cam2.yaml   --fisheye   --no_gst
 <img width="924" height="694" alt="image" src="https://github.com/user-attachments/assets/00d3e733-b85b-4b76-a929-5d13b348e527" />
@@ -45,9 +49,19 @@ project_keypoints = pixel locations of the four points to be chosen when running
 
 <img width="1372" height="1120" alt="image" src="https://github.com/user-attachments/assets/2621ff3d-eab1-4d26-addb-27c3ecdaa699" />
 
-Results:
+✅ Results
 
 <img width="1685" height="941" alt="image" src="https://github.com/user-attachments/assets/fb699c29-1d08-41ab-8ca3-d141fe2e11ef" />
 <img width="1718" height="933" alt="image" src="https://github.com/user-attachments/assets/92264f4d-b77c-4062-8091-f4701d18d084" />
 <img width="1670" height="938" alt="image" src="https://github.com/user-attachments/assets/a09dc8a8-3285-4abc-9dcc-580cf341f334" />
+
+
+⚠️ Performance Consideration
+
+The original Python implementation was too slow for real-time use. To overcome this, we explored a C++ alternative already available at:
+👉 https://github.com/JokerEyeAdas/AdasSourrondView/tree/main
+
+Our improved fork of this C++ implementation can continuously generate and publish the surround view in a ROS 2 topic:
+👉 https://github.com/JosepMarinG/SourrondViewC-
+
 
