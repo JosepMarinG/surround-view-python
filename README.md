@@ -14,6 +14,7 @@ This image shows the MiniCERNBot with a Nuc and 4 USB fisheye cameras.
 
 🔧Here is an explanation of the repo:
 run_calibrate_camera.py calibrates the camera with a nice UI.
+
     python3 run_calibrate_camera.py   -i 2   --grid 11x8   --resolution 1920x1080   -framestep 10   -o yaml/cam2.yaml   --fisheye   --no_gst
 <img width="924" height="694" alt="image" src="https://github.com/user-attachments/assets/00d3e733-b85b-4b76-a929-5d13b348e527" />
 
