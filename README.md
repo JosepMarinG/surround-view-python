@@ -6,8 +6,6 @@ It includes:
 
     A new script that publishes the generated surround view image on a ROS 2 topic.
 
-    A clear explanation of the workflow (since the original repo lacks proper documentation).
-
 📷 Hardware Setup:
 <img width="1966" height="830" alt="image" src="https://github.com/user-attachments/assets/699254bf-71af-4173-be39-3c38b85b3fe2" />
 This image shows the MiniCERNBot with a Nuc and 4 USB fisheye cameras.
