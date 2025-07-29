@@ -21,7 +21,8 @@ run_calibrate_camera.py calibrates the camera with a nice UI.
 
 run_get_projection_maps.py gets the perspective. Change the data on the param_settings.py file inside the surround_view folder before runing the projection script.
 The order of seleccion of the points is very important. First the top left, top right, bottom left, bottom right.
-python3 run_get_projection_maps.py -camera front
+
+    python3 run_get_projection_maps.py -camera front
 
 <img width="1564" height="1033" alt="image" src="https://github.com/user-attachments/assets/dee16eb9-3c7c-46a4-a793-4bbcd9186904" />
 <img width="1572" height="588" alt="image" src="https://github.com/user-attachments/assets/99a06b52-19a0-44c6-aaf9-0ae058278bb2" />
